@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+html,
+body {
+    margin: 0;
+    /* font-family: 'Alexandria', serif; */
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: black;
+    color: white;
+}
+
+p {
+    /* font-family: 'Alexandria', serif; */
+}

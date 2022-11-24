@@ -19,8 +19,8 @@
         }, options);
 
         let target = document.querySelectorAll('.content h1');
-        if (target) {
-            target.forEach(observer.observe);
+        if (target && target.length > 0) {
+            target.forEach((e) => observer.observe(e));
         }
     });
 </script>
@@ -50,8 +50,8 @@
                     y2="218"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#8A2387" offset="0" />
-                    <stop stop-color="#f77f23" stop-opacity=".94118" offset="1" />
+                    <stop stop-color="#ff0f7b" offset="0" />
+                    <stop stop-color="#f89b29" stop-opacity=".94118" offset="1" />
                 </linearGradient>
                 <clipPath id="clipPath">
                     <path
@@ -63,17 +63,26 @@
                 d="m294.91 44.795a40 40 0 0 1 34.641 20l76.906 133.21a40 40 0 0 1 0 40l-76.906 133.21a40 40 0 0 1-34.641 20h-153.81a40 40 0 0 1-34.641-20l-76.906-133.21a40 40 0 0 1 0-40l76.906-133.21a40 40 0 0 1 34.641-20"
                 fill="url(#linearGradient)"
             />
-            <foreignObject clip-path="url(#clipPath)" width="100%" height="100%" >
-                <Image src="images/profile.png" alt="Mihir Patil" class="profile-img" />
+            <foreignObject clip-path="url(#clipPath)" width="100%" height="100%">
+                <Image class="profile-img" src="/images/profile.png" alt="Mihir Patil" />
             </foreignObject>
         </svg>
     </div>
 
-    <h1 class="color slide-in">My Work</h1>
+    <h1 class="color slide-in">My Experience</h1>
     <h2>Purdue Space Program</h2>
     <p>
-        I'm a member of the avionics subteam of Purdue Space Program Liquids. I've helped develop
-        flight software and sensor drivers for the team's latest rocket, the CraterMaker Special.
+        As a member of the avionics subteam of Purdue Space Program Liquids, I helped develop flight
+        software for the team's latest rocket, the CraterMaker Special. This rocket is the largest
+        embedded systems project I've worked on, and I have learned about the intricacies of
+        communication protocols, the RP2040 microcontroller, and advanced PCB design.
+    </p>
+    <Image src="images/rocket.png" alt="CraterMaker Special render" />
+    <h2>b01lers</h2>
+    <p>
+        In Purdue's b01lers CTF team, I have worked on various challenges, focusing on web and
+        blockchain. We recently competed in the 2022 Raymond James CTF and placed 3rd out of 14
+        teams.
     </p>
 </div>
 
@@ -157,7 +166,6 @@
                 @media screen and (max-width: 600px) {
                     width: 300px;
                 }
-
                 :global(.profile-img) {
                     position: fixed;
                     bottom: 40px;

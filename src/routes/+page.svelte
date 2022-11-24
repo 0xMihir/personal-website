@@ -1,6 +1,7 @@
 <script lang="ts">
     import Navbar from '../components/navbar.svelte';
     import { onMount } from 'svelte';
+    import Image from 'svimg';
 
     onMount(() => {
         let options = {
@@ -62,13 +63,8 @@
                 d="m294.91 44.795a40 40 0 0 1 34.641 20l76.906 133.21a40 40 0 0 1 0 40l-76.906 133.21a40 40 0 0 1-34.641 20h-153.81a40 40 0 0 1-34.641-20l-76.906-133.21a40 40 0 0 1 0-40l76.906-133.21a40 40 0 0 1 34.641-20"
                 fill="url(#linearGradient)"
             />
-            <foreignObject clip-path="url(#clipPath)" width="100%" height="100%">
-                <img
-                    style="position: fixed; bottom: 40px; left: 30px"
-                    src="images/profile.png"
-                    alt="Mihir Patil"
-                    height="348.72"
-                />
+            <foreignObject clip-path="url(#clipPath)" width="100%" height="100%" >
+                <Image src="images/profile.png" alt="Mihir Patil" class="profile-img" />
             </foreignObject>
         </svg>
     </div>
@@ -160,6 +156,13 @@
                 width: 450px;
                 @media screen and (max-width: 600px) {
                     width: 300px;
+                }
+
+                :global(.profile-img) {
+                    position: fixed;
+                    bottom: 40px;
+                    left: 30px;
+                    width: 80%;
                 }
             }
 

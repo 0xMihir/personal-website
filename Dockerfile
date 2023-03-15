@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18 AS build
 
 # Create app directory
 WORKDIR /app
@@ -13,5 +13,17 @@ COPY . .
 # Build the app
 RUN npm run build
 
-# Run the app
+# Production image, copy all the files and run next
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=build /app /app
+
+ENV NODE_ENV=production
+
+RUN npm install
+
+EXPOSE 3000
+
 CMD [ "npm", "start" ]

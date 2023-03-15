@@ -1,8 +1,6 @@
 <script lang="ts">
-    import Navbar from '../components/navbar.svelte';
+    import Navbar from '$lib/components/navbar.svelte';
     import { onMount } from 'svelte';
-    import Image from 'svimg';
-
     onMount(() => {
         let options = {
             root: document.querySelector('#scrollArea'),
@@ -40,31 +38,18 @@
             Currently, I'm a freshman at Purdue University majoring in Computer Science. I've always
             been a maker by heart and I'm fascinated by physical computing and AI.
         </p>
-        <svg version="1.1" class="profile-holder" viewBox="0 0 436 436">
+        <svg version="1.1" class="profile-holder" viewBox="0 0 436 436" width="450" height="450">
             <defs>
-                <linearGradient
-                    id="linearGradient"
-                    x1="24.188"
-                    x2="372.91"
-                    y1="218"
-                    y2="218"
-                    gradientUnits="userSpaceOnUse"
-                >
-                    <stop stop-color="#ff0f7b" offset="0" />
-                    <stop stop-color="#f89b29" stop-opacity=".94118" offset="1" />
-                </linearGradient>
                 <clipPath id="clipPath">
                     <path
                         d="m294.91 44.795a40 40 0 0 1 34.641 20l76.906 133.21a40 40 0 0 1 0 40l-76.906 133.21a40 40 0 0 1-34.641 20h-153.81a40 40 0 0 1-34.641-20l-76.906-133.21a40 40 0 0 1 0-40l76.906-133.21a40 40 0 0 1 34.641-20"
                     />
                 </clipPath>
             </defs>
-            <path
-                d="m294.91 44.795a40 40 0 0 1 34.641 20l76.906 133.21a40 40 0 0 1 0 40l-76.906 133.21a40 40 0 0 1-34.641 20h-153.81a40 40 0 0 1-34.641-20l-76.906-133.21a40 40 0 0 1 0-40l76.906-133.21a40 40 0 0 1 34.641-20"
-                fill="url(#linearGradient)"
-            />
-            <foreignObject clip-path="url(#clipPath)" width="100%" height="100%">
-                <Image class="profile-img" src="/images/profile.png" alt="Mihir Patil" />
+            <foreignObject class="profile-img-wrapper" height="436" width="436">
+                <div class="profile-img">
+                    <img src="/images/profile.png" alt="Mihir Patil" />
+                </div>
             </foreignObject>
         </svg>
     </div>
@@ -73,14 +58,16 @@
     <h2>Purdue Space Program</h2>
     <p>
         As a member of the avionics subteam of Purdue Space Program Liquids, I helped develop flight
-        software for the team's latest rocket, the CraterMaker Special. This rocket is the largest
-        embedded systems project I've worked on, and I have learned about the intricacies of
-        communication protocols, the RP2040 microcontroller, and advanced PCB design.
+        software for the team's latest rocket, the CraterMaker Special. This rocket is the most
+        advanced embedded systems project I've worked on, and I have learned about the intricacies
+        of communication protocols, the RP2040 microcontroller, and high-speed PCB design. I also
+        led the development of a real-time telemetry analytics solution, using InfluxDB, Telegraf,
+        and a custom charting dashboard.
     </p>
-    <Image src="images/rocket.png" alt="CraterMaker Special render" />
+    <img src="images/rocket.png" alt="CraterMaker Special render" />
     <h2>b01lers</h2>
     <p>
-        In Purdue's b01lers CTF team, I have worked on various challenges, focusing on web and
+        In Purdue's b01lers CTF team, I worked on various challenges, focusing on web and
         blockchain. We recently competed in the 2022 Raymond James CTF and placed 3rd out of 14
         teams.
     </p>
@@ -101,7 +88,15 @@
         h1 {
             flex: 0 1 auto;
             padding: 0 2rem;
-            font-size: 2.5em;
+            font-size: 3em;
+
+            @media screen and (max-width: 600px) {
+                font-size: 2.5em;
+            }
+
+            @media screen and (max-width: 400px) {
+                font-size: 1.5em;
+            }
             span {
                 display: inline-block;
             }
@@ -166,34 +161,72 @@
                 @media screen and (max-width: 600px) {
                     width: 300px;
                 }
-                :global(.profile-img) {
+
+                .profile-img-wrapper {
+                    height: 450px;
+                    width: 450px;
+                }
+                .profile-img {
                     position: fixed;
-                    bottom: 40px;
-                    left: 30px;
-                    width: 80%;
+                    //
+                    background: linear-gradient(to right, #b01ac4, 47%, #ec8b15);
+                    -webkit-clip-path: url(#clipPath);
+                    clip-path: url(#clipPath);
+
+                    height: 450px;
+                    width: 450px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 80%;
+                        margin-right: 30px;
+                    }
                 }
             }
 
             p.tagline {
-                font-size: inherit;
+                font-size: 1em;
                 margin: 0 16px 0;
 
                 @media screen and (max-width: 1200px) {
                     text-align: center;
+                }
+
+                @media screen and (max-width: 400px) {
+                    font-size: 0.75em;
                 }
             }
         }
 
         h1 {
             // font-family: 'IBM Plex Mono', monospace;
-            font-size: 2em;
+            font-size: 2.5em;
+            @media screen and (max-width: 900px) {
+                font-size: 2em;
+            }
+            @media screen and (max-width: 600px) {
+                font-size: 1.2em;
+            }
             text-transform: uppercase;
         }
 
-        p {
-            font-size: 1.2rem;
+        h2 {
+            font-size: 1.75em;
+            @media screen and (max-width: 900px) {
+                font-size: 1.5em;
+            }
             @media screen and (max-width: 600px) {
-                text-align: center;
+                font-size: 1em;
+            }
+        }
+
+        p {
+            font-size: 0.75em;
+            @media screen and (max-width: 900px) {
+                font-size: 0.5em;
             }
         }
     }

@@ -1,18 +1,12 @@
-import adapter from '@sveltejs/adapter-cloudflare';
+import adapter from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer'
-import { imagePreprocessor } from 'svimg';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: [imagePreprocessor({
-		inputDir: 'static',
-		outputDir: 'static/generated',
-		webp: true,
-		avif: true
-	}), preprocess({
+	preprocess: [preprocess({
 		postcss: {
 			plugins: [autoprefixer()]
 		}

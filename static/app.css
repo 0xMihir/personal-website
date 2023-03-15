@@ -27,3 +27,11 @@ p {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+a {
+    color: #ff8008;
+}
+a:active,
+a:hover {
+    color: #f3a712;
+}

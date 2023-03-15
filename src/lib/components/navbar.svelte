@@ -1,32 +1,38 @@
 <script lang="ts">
     import { page } from '$app/stores';
-    import { fly, type FlyParams, fade } from 'svelte/transition';
+    import { fly, fade } from 'svelte/transition';
+    import { onMount } from 'svelte';
 
-    let current = $page.url.pathname.replace('/', '');
+    let current = '';
+
+    $: current = $page.url.pathname.split('/')[1];
+
     let showSidebar = false;
-    let horizSlide = (node: Element, options: FlyParams) => {
-        const flyTrans = fly(node, options);
-        return {
-            duration: options.duration,
-            css: (t: number) => `
-				${flyTrans.css(t)}
-				opacity: 1;
-			`
-        };
-    };
+    let innerWidth: number;
+
+    onMount(() => {
+        innerWidth = window.innerWidth;
+    });
+
+    $: if (innerWidth > 768) showSidebar = false;
+
     let toggleSidebar = () => (showSidebar = !showSidebar);
 </script>
+
+<svelte:window bind:innerWidth />
 
 <nav>
     <div class="left">
         <a href="/">Mihir</a><span class="color">
-            {#if current != ''}
-                .{current}()
-            {/if}
+            {#key current}
+                {#if current != ''}
+                    .{current}()
+                {/if}
+            {/key}
         </span>
     </div>
     <div class="right">
-        <button on:click={toggleSidebar}>
+        <button on:click={toggleSidebar} aria-label="Open Sidebar">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 48 48">
                 <path
                     stroke="white"
@@ -44,7 +50,12 @@
 </nav>
 
 {#if showSidebar}
-    <div class="sidebar" transition:horizSlide={{ x: -400 }}>
+    <div
+        class="sidebar"
+        transition:fly={{ x: -400 }}
+        on:click={toggleSidebar}
+        on:keypress={toggleSidebar}
+    >
         <div class="links">
             <a href="/about">.about()</a>
             <a href="/projects">.projects()</a>
@@ -151,7 +162,7 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
         nav {
             .right {
                 button {

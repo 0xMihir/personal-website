@@ -1,4 +1,25 @@
 <h1>Projects</h1>
+<h2>MedSpeak</h2>
+<p>
+    During the TreeHacks 2023 Hackathon held at Stanford, I developed <a
+        href="https://github.com/0xMihir/MedSpeak">MedSpeak</a
+    >, a real-time web application designed to help doctors sift through complex electronic health
+    record (EHR) documents to locate the most relevant information needed during patient visits.
+    With MedSpeak, doctors can quickly access important data without wasting time searching through
+    EHR records, enabling them to focus more on their patients. For this project, I utilized
+    SvelteKit for both frontend and backend development, and the OpenAI embeddings API to evaluate
+    essential data points. Additionally, I incorporated D3.js to create visual representations of
+    numerical data.
+</p>
+<h2>Cryptum</h2>
+<p>
+    Another recent project that I worked on during the BoilerMake 2023 Hackathon is <a
+        href="https://github.com/0xMihir/Cryptum">Cryptum</a
+    >, a file storage app that utilizes a custom hardware security module called the Tillitis TKey
+    for secure data storage. We built the firmware for the TKey in C, and created a communication
+    protocol for web apps using the WebUSB standard. Additionally, we used SvelteKit for the backend
+    and frontend. Our project won the prize for Best National Security Project!
+</p>
 <h2>
     Wordle Together
     <img src="/images/wordletogether.svg" alt="" height="75px" />

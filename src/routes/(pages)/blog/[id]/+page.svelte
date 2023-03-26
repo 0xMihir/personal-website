@@ -65,7 +65,7 @@
             align-items: center;
             margin: 1rem auto;
             img {
-                max-height: 600px;
+                height: 500px;
                 object-fit: cover;
             }
         }
@@ -76,17 +76,34 @@
         border-bottom: 1px solid #eee;
     }
     .post-content {
+        padding: 0 200px;
         :global(p) {
-            font-size: 1rem;
-            line-height: 1;
+            font-size: 20px;
+            line-height: 1.5;
             margin-bottom: 0;
             color: #ddd;
-            padding: 0 10%;
+            
         }
         :global(h1), :global(h2), :global(h3), :global(h4), :global(h5), :global(h6) {
             font-family: 'IBM Plex Sans';
             font-size: 1.5em;
             color: #ddd;
+        }
+        :global(.image-wrapper) {
+            width: 100%;
+            margin: 24px auto;
+            display: flex;
+            justify-content: center;
+            flex-flow: column;
+            align-items: center;
+            :global(img) {
+                width: 80%;
+                object-fit: cover;
+            }
+            :global(span) {
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+            }
         }
     }
 </style>

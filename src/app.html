@@ -25,13 +25,21 @@
 	<meta property="twitter:title" content="Mihir Patil">
 	<meta property="twitter:description"
 		content="Mihir Patil is a freshman in CS at Purdue University, and is fascinated by physical computing and AI.">
-	<meta property="twitter:image"
-		content="https://mihirpatil.me/images/profile.png">
+	<meta property="twitter:image" content="https://mihirpatil.me/images/profile.png">
 	%sveltekit.head%
 </head>
 
 <body>
 	<div style="display: contents">%sveltekit.body%</div>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GER9S1GMY"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-0GER9S1GMY');
+	</script>
 </body>
 
 </html>

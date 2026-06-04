@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
     import Navbar from '$lib/components/navbar.svelte';
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
 
-    let current = '';
+    let { children } = $props();
 
-    $: current = $page.url.pathname.replace('/', '');
+    let current = $derived(page.url.pathname.replace('/', ''));
 </script>
 
 <svelte:head>
@@ -20,4 +20,4 @@
 </svelte:head>
 
 <Navbar />
-<slot />
+{@render children()}

@@ -1,9 +1,13 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+import { defineConfig } from 'vite';
 
-const config: UserConfig = {
+export default defineConfig({
 	plugins: [sveltekit()],
-	
-};
-
-export default config;
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern'
+			}
+		}
+	}
+});

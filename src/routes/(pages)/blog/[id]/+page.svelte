@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { PageData } from './$types';
 
-    export let data: PageData;
+    let { data }: { data: PageData } = $props();
 </script>
 
 <div class="header">
@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<div class="divider" />
+<div class="divider"></div>
 
 <div class="post-content">
     {@html data.content}

@@ -2,6 +2,8 @@ import fs from 'fs/promises';
 import fm, { type FrontMatterResult } from 'front-matter';
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
+
 export type Post = {
     title: string;
     subtitle: string;

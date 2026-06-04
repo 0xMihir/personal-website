@@ -1,20 +1,20 @@
 <script lang="ts">
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import { fly, fade } from 'svelte/transition';
     import { onMount } from 'svelte';
 
-    let current = '';
+    let current = $derived(page.url.pathname.split('/')[1]);
 
-    $: current = $page.url.pathname.split('/')[1];
-
-    let showSidebar = false;
-    let innerWidth: number;
+    let showSidebar = $state(false);
+    let innerWidth = $state(0);
 
     onMount(() => {
         innerWidth = window.innerWidth;
     });
 
-    $: if (innerWidth > 768) showSidebar = false;
+    $effect(() => {
+        if (innerWidth > 768) showSidebar = false;
+    });
 
     let toggleSidebar = () => (showSidebar = !showSidebar);
 </script>
@@ -32,7 +32,7 @@
         </span>
     </div>
     <div class="right">
-        <button on:click={toggleSidebar} aria-label="Open Sidebar">
+        <button onclick={toggleSidebar} aria-label="Open Sidebar">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 48 48">
                 <path
                     stroke="white"
@@ -53,8 +53,10 @@
     <div
         class="sidebar"
         transition:fly={{ x: -400 }}
-        on:click={toggleSidebar}
-        on:keypress={toggleSidebar}
+        onclick={toggleSidebar}
+        onkeypress={toggleSidebar}
+        role="button"
+        tabindex="0"
     >
         <div class="links">
             <a href="/about">.about()</a>
@@ -62,7 +64,14 @@
             <a href="/blog">.blog()</a>
         </div>
     </div>
-    <div class="scrim" transition:fade on:click={toggleSidebar} on:keypress={toggleSidebar} />
+    <div
+        class="scrim"
+        transition:fade
+        onclick={toggleSidebar}
+        onkeypress={toggleSidebar}
+        role="button"
+        tabindex="0"
+    ></div>
 {/if}
 
 <style lang="scss">
@@ -121,7 +130,7 @@
         }
 
         .left,
-        left a {
+        .left a {
             margin-right: 0;
             display: inline-block;
             font-weight: 600;

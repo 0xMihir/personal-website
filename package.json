@@ -3,38 +3,37 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "start": "node build/index.js",
         "dev": "vite dev",
         "build": "vite build",
         "preview": "vite preview",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-        "lint": "prettier --plugin-search-dir . --check . && eslint .",
-        "format": "prettier --plugin-search-dir . --write ."
+        "lint": "prettier --check . && eslint .",
+        "format": "prettier --write ."
     },
     "devDependencies": {
-        "@sveltejs/adapter-node": "^1.0.0",
-        "@sveltejs/kit": "^1.0.1",
-		"@types/marked": "^4.0.8",
-        "@typescript-eslint/eslint-plugin": "^5.48.0",
-        "@typescript-eslint/parser": "^5.48.0",
-        "eslint": "^8.31.0",
-        "eslint-config-prettier": "^8.6.0",
-        "eslint-plugin-svelte3": "^4.0.0",
-        "prettier": "^2.8.1",
-        "prettier-plugin-svelte": "^2.9.0",
-        "svelte": "^3.55.0",
-        "svelte-check": "^3.0.1",
-        "svelte-preprocess": "^5.0.0",
-        "tslib": "^2.4.1",
-        "typescript": "^4.9.4",
-        "vite": "^4.0.3",
-        "autoprefixer": "^10.4.13",
-		"sass": "^1.57.1"
+        "@sveltejs/adapter-cloudflare": "^4.9.0",
+        "@sveltejs/kit": "^2.21.0",
+        "@sveltejs/vite-plugin-svelte": "^4.0.4",
+        "@typescript-eslint/eslint-plugin": "^7.18.0",
+        "@typescript-eslint/parser": "^7.18.0",
+        "autoprefixer": "^10.4.20",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-svelte": "^2.46.1",
+        "prettier": "^3.3.3",
+        "prettier-plugin-svelte": "^3.3.3",
+        "sass": "^1.80.0",
+        "svelte": "^5.33.0",
+        "svelte-check": "^4.1.0",
+        "tslib": "^2.7.0",
+        "@types/node": "^20.0.0",
+        "typescript": "^5.5.0",
+        "vite": "^5.4.0"
     },
     "type": "module",
     "dependencies": {
         "front-matter": "^4.0.2",
-        "marked": "^4.2.12"
+        "marked": "^12.0.0"
     }
 }

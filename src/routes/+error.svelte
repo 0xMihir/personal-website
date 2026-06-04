@@ -1,5 +1,5 @@
-<script>
-    import { page } from '$app/stores';
+<script lang="ts">
+    import { page } from '$app/state';
 </script>
 
 <svelte:head>
@@ -8,7 +8,7 @@
 </svelte:head>
 
 <div class="content">
-    <h1>{$page.error?.message || 'Unknown Error'}</h1>
+    <h1>{page.error?.message || 'Unknown Error'}</h1>
     <p>
         <a href="/">Go back</a>
     </p>

@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Navbar from '$lib/components/navbar.svelte';
     import { onMount } from 'svelte';
     onMount(() => {
         let options = {
@@ -23,20 +22,18 @@
     });
 </script>
 
-<Navbar />
-
 <div class="centered">
-    <div class="hidden" />
+    <div class="hidden"></div>
     <h1>Hey! 🤟🏽 <br /> I'm <span class="color slide-in start">Mihir Patil</span></h1>
     <div class="mouse">
-        <div class="wheel" />
+        <div class="wheel"></div>
     </div>
 </div>
 <div class="content">
     <div class="tagline-profile">
         <p class="tagline">
-            Currently, I'm a freshman at Purdue University majoring in Computer Science. I've always
-            been a maker by heart and I'm fascinated by physical computing and AI.
+            Currently, I'm a senior at Purdue University majoring in Computer Science and Math. Recently,
+	    I helped design the compiler backend for AI5 at Tesla.
         </p>
         <svg version="1.1" class="profile-holder" viewBox="0 0 436 436" width="450" height="450">
             <defs>
@@ -55,9 +52,16 @@
     </div>
 
     <h1 class="color slide-in">My Experience</h1>
+    <h2>Tesla</h2>
+    <p>
+    	From spring-summer 2025, I interned at Tesla, focusing on the next-generation AI5 chip. In 
+	spring, I was on the silicon validation team, where I developed firmware to validate different
+	IP blocks including the GPU and UFS controller. Over the summer, I worked on the Autopilot compiler
+	team, where I helped design the compiler for AI5's neural network accelerator. 
+    </p>
     <h2>Purdue Space Program</h2>
     <p>
-        As a member of the avionics subteam of Purdue Space Program Liquids, I helped develop flight
+        As a lead of the avionics subteam of Purdue Space Program Liquids, I helped develop flight
         software for the team's latest rocket, the CraterMaker Special. This rocket is the most
         advanced embedded systems project I've worked on, and I have learned about the intricacies
         of communication protocols, the RP2040 microcontroller, and high-speed PCB design. I also
@@ -68,7 +72,7 @@
     <h2>b01lers</h2>
     <p>
         In Purdue's b01lers CTF team, I worked on various challenges, focusing on web and
-        blockchain. We recently competed in the 2022 Raymond James CTF and placed 3rd out of 14
+        blockchain. We recently competed in the 2023 Raymond James CTF and placed 1st out of 20
         teams.
     </p>
 </div>
@@ -163,8 +167,8 @@
                 }
 
                 .profile-img-wrapper {
-                    height: 450px;
-                    width: 450px;
+                    height: 425px;
+                    width: 525px;
                 }
                 .profile-img {
                     position: fixed;
